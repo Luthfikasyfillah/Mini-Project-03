@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
@@ -22,6 +23,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
@@ -99,16 +101,25 @@ fun FilmDialog(
                 ) {
                     OutlinedButton(
                         onClick = { onDismissRequest() },
-                        modifier = Modifier.padding(8.dp)
+                        modifier = Modifier.padding(8.dp),
+                        colors = ButtonDefaults.outlinedButtonColors(
+                            containerColor = Color.White
+                        )
                     ) {
-                        Text(text = stringResource(R.string.batal))
+                        Text(text = stringResource(R.string.batal),
+                            color = Color.Black
+                        )
                     }
                     OutlinedButton(
                         onClick = { onConfirmation(title, genre, year) },
                         enabled = title. isNotEmpty() && genre. isNotEmpty () && year. isNotEmpty (),
-                        modifier = Modifier.padding(8.dp)
+                        modifier = Modifier.padding(8.dp),
+                        colors = ButtonDefaults.outlinedButtonColors(
+                            containerColor = Color.Black
+                        )
                     ) {
-                        Text(text = stringResource(R.string.simpan))
+                        Text(text = stringResource(R.string.simpan)
+                        )
                     }
                 }
             }

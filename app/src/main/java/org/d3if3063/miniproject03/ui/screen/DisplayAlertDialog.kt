@@ -8,11 +8,13 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -42,12 +44,24 @@ fun DisplayAlertDialog(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.Center
                 ) {
-                    OutlinedButton(onClick = { onConfirmation() }) {
-                        Text(text = stringResource(R.string.tombol_hapus))
+                    OutlinedButton(onClick = { onConfirmation() },
+                        colors = ButtonDefaults.outlinedButtonColors(
+                            containerColor = Color.Black
+                        )
+                    ) {
+                        Text(text = stringResource(R.string.tombol_hapus),
+                            color = Color.White
+                        )
                     }
                     Spacer(modifier = Modifier.width(8.dp))
-                    OutlinedButton(onClick = { onDismissRequest() }) {
-                        Text(text = stringResource(R.string.tombol_batal))
+                    OutlinedButton(onClick = { onDismissRequest() },
+                        colors = ButtonDefaults.outlinedButtonColors(
+                            containerColor = Color.White
+                        )
+                    ) {
+                        Text(text = stringResource(R.string.tombol_batal),
+                            color = Color.Black
+                        )
                     }
                 }
             }

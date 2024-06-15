@@ -98,6 +98,7 @@ import org.d3if3063.miniproject03.network.ApiStatus
 import org.d3if3063.miniproject03.network.FilmApi
 import org.d3if3063.miniproject03.network.UserDataStore
 import org.d3if3063.miniproject03.ui.theme.MiniProject03Theme
+import org.d3if3063.miniproject03.util.SettingsDataStore
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -114,8 +115,9 @@ fun MainScreen() {
 
     var showDialog by remember { mutableStateOf(false) }
     var showFilmDialog by remember { mutableStateOf(false) }
-    
-    var showList by remember { mutableStateOf(true) }
+
+    val dataStore2 = SettingsDataStore(LocalContext.current)
+    val showList by dataStore2.layoutFlow.collectAsState(true)
     
     var bitmap: Bitmap? by remember {
         mutableStateOf(null)
@@ -132,17 +134,23 @@ fun MainScreen() {
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceBetween,
-                        modifier = Modifier.fillMaxWidth().padding(end = 16.dp)
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(end = 16.dp)
                     ) {
-                        IconButton(onClick = { showList = !showList }) {
+                        IconButton(onClick = {
+                            CoroutineScope(Dispatchers.IO).launch {
+                                dataStore2.saveLayout(!showList)
+                            }
+                        }) {
                             Icon(
                                 painter = painterResource(
-                                    if (showList) R.drawable.grid_view
-                                    else R.drawable.view_list
+                                    if (showList) R.drawable.view_list
+                                    else R.drawable.grid_view
                                 ),
                                 contentDescription = stringResource(
-                                    if (showList) R.string.grid
-                                    else R.string.list
+                                    if (showList) R.string.list
+                                    else R.string.grid
                                 ),
                                 tint = White
                             )

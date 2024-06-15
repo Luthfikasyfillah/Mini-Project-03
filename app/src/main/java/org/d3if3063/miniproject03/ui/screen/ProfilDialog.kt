@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
@@ -18,6 +19,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -81,21 +83,29 @@ fun ProfilDialog(
                 ) {
                     OutlinedButton(
                         onClick = { onDismissRequest() },
-                        modifier = Modifier.padding(8.dp)
+                        modifier = Modifier.padding(8.dp),
+                        colors = ButtonDefaults.outlinedButtonColors(
+                            containerColor = Color.White
+                        )
                     ) {
-                        Text(stringResource(R.string.tutup))
+                        Text(stringResource(R.string.tutup),
+                            color = Color.Black)
                     }
 
                     OutlinedButton(
                         onClick = { onConfirmation() },
                         modifier = Modifier.padding(8.dp),
-                        border = BorderStroke(1.dp, MaterialTheme.colorScheme.error)
+                        border = BorderStroke(1.dp, MaterialTheme.colorScheme.error),
+                        colors = ButtonDefaults.outlinedButtonColors(
+                            containerColor = Color.Black
+                        )
                     ) {
                         Text(
                             text = stringResource(R.string.logout),
-                            color = MaterialTheme.colorScheme.error
+                            color = Color.White
                         )
                     }
+
                 }
             }
         }
