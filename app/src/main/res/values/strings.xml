@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">MovieMemo</string>
+    <string name="gambar">Gambar %1$s</string>
+    <string name="error">Gagal memuat data.. Koneksi error.</string>
+    <string name="try_again">Coba lagi</string>
+    <string name="profil">Profil</string>
+    <string name="tutup">Tutup</string>
+    <string name="logout">Logout</string>
+    <string name="tambah_film">Tambah Film</string>
+    <string name="title">Judul Film</string>
+    <string name="genre">Genre</string>
+    <string name="year">Tahun Rilis</string>
+    <string name="batal">Batal</string>
+    <string name="simpan">Simpan</string>
+    <string name="pesan_hapus">Anda yakin ingin menghapus film ini?</string>
+    <string name="tombol_hapus">Hapus</string>
+    <string name="tombol_batal">Batal</string>
+    <string name="list">Tampilan list</string>
+    <string name="grid">Tampilan Grid</string>
+</resources>
